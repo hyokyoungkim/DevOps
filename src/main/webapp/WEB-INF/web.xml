@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 개념 객체와 Java 객체와의 연결을 이곳에서 한다.  -->
+
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <session-config>
+        <session-timeout>180</session-timeout>
+    </session-config>
+    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <!--<welcome-file>index.html</welcome-file>-->
+    </welcome-file-list>
+    
+    <!-- SPA 새로고침을 위해 /index.html으로 설정-->
+    <error-page>
+      <error-code>404</error-code>
+      <location>/error.jsp</location>
+    </error-page>
+    
+    
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>com.ithows.base.DispatcherServlet</servlet-class>
+    </servlet>
+
+    <!-- 쿼리확장자 지정 -->
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>*.do</url-pattern>
+        <url-pattern>*.api</url-pattern>
+    </servlet-mapping>
+
+
+     <servlet>
+        <servlet-name>AppConfig</servlet-name>
+        <servlet-class>com.ithows.AppConfig</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>    
+    
+    <filter>
+        <filter-name>Character Encoding</filter-name>
+        <filter-class>com.ithows.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Character Encoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- cors Filter -->
+    <filter>
+        <filter-name>cors</filter-name>
+        <filter-class>com.ithows.SOXCORSFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>cors</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    
+    <listener>
+        <listener-class>com.ithows.base.SOXSessionListener</listener-class>
+    </listener>
+    
+</web-app>

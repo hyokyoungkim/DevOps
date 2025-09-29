@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="url">jdbc:mysql://127.0.0.1:3306/codeenator?characterEncoding=utf8</entry>
+    <!--<entry key="mariaUrl">jdbc:mariadb://127.0.0.1:3306/ddsdb?characterEncoding=utf8</entry>-->
+    <entry key="username">soxuser</entry>
+    <entry key="password">sox123</entry>
+    <entry key="maxActive">15</entry>
+    <entry key="minIdle">3</entry>    
+    <entry key="maxIdle">5</entry>    
+    <entry key="initialSize">2</entry>    
+</properties>

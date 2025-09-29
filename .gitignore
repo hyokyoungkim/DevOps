@@ -1,0 +1,20 @@
+# 민감한 정보가 포함된 설정 파일
+configplatform.xml
+
+# 데이터베이스 덤프 파일
+*.sql
+
+# Java 컴파일 결과물
+/target/
+/build/
+
+# 로그 파일
+*.log
+
+# IDE 및 운영체제 관련 파일
+.idea
+.classpath
+.project
+.settings
+*.iml
+.DS_Store
